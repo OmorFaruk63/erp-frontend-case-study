@@ -807,9 +807,26 @@
     <div class="section-title">Visual UI Showcase & Key Views</div>
     <div class="showcase-grid">
 
-      <!-- View 1: Analytics Dashboard -->
+      <!-- View 1: Multi-Module Portal Hub -->
       <div class="showcase-card">
         <div class="showcase-img-box" onclick="openLightbox(0)">
+          <img src="./screenshots/00-module-portal.png" alt="Multi-Module ERP Portal">
+          <div class="zoom-hint">🔍 Click to zoom</div>
+        </div>
+        <div class="showcase-info">
+          <div class="showcase-title">
+            <span>Multi-Module Enterprise Hub</span>
+            <span class="showcase-tag">Modular Architecture</span>
+          </div>
+          <div class="showcase-desc">
+            Centralized portal gateway routing authenticated users to domain modules: HRIS, UMS, Accounts, Asset, and Charity services.
+          </div>
+        </div>
+      </div>
+
+      <!-- View 2: Analytics Dashboard -->
+      <div class="showcase-card">
+        <div class="showcase-img-box" onclick="openLightbox(1)">
           <img src="./screenshots/01-dashboard.png" alt="Analytics Dashboard">
           <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
@@ -824,9 +841,9 @@
         </div>
       </div>
 
-      <!-- View 2: Virtualized DataGrid -->
+      <!-- View 3: Virtualized DataGrid -->
       <div class="showcase-card">
-        <div class="showcase-img-box" onclick="openLightbox(1)">
+        <div class="showcase-img-box" onclick="openLightbox(2)">
           <img src="./screenshots/02-datagrid.png" alt="Employee Management DataGrid">
           <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
@@ -841,9 +858,9 @@
         </div>
       </div>
 
-      <!-- View 3: Organization Management -->
+      <!-- View 4: Organization Management -->
       <div class="showcase-card">
-        <div class="showcase-img-box" onclick="openLightbox(2)">
+        <div class="showcase-img-box" onclick="openLightbox(3)">
           <img src="./screenshots/03-organization.png" alt="Manage Organization">
           <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
@@ -858,9 +875,9 @@
         </div>
       </div>
 
-      <!-- View 4: Leave Application Form -->
+      <!-- View 5: Leave Application Form -->
       <div class="showcase-card">
-        <div class="showcase-img-box" onclick="openLightbox(3)">
+        <div class="showcase-img-box" onclick="openLightbox(4)">
           <img src="./screenshots/04-leave-form.png" alt="Apply Leave for Employee">
           <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
@@ -875,16 +892,16 @@
         </div>
       </div>
 
-      <!-- View 5: Payroll & Salary Breakdown -->
-      <div class="showcase-card" style="grid-column: 1 / -1;">
-        <div class="showcase-img-box" style="height: 280px;" onclick="openLightbox(4)">
+      <!-- View 6: Payroll & Salary Breakdown -->
+      <div class="showcase-card">
+        <div class="showcase-img-box" onclick="openLightbox(5)">
           <img src="./screenshots/05-payroll.png" alt="Payroll Management">
           <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
         <div class="showcase-info">
           <div class="showcase-title">
             <span>Payroll Engine & Compensation Pipeline</span>
-            <span class="showcase-tag">ExcelJS &bull; jsPDF &bull; Automated Net Pay</span>
+            <span class="showcase-tag">ExcelJS &bull; jsPDF &bull; Instant Net Pay</span>
           </div>
           <div class="showcase-desc">
             Complete disbursement dashboard calculating gross salaries, basic allowances, tax/PF deductions, and monthly payroll history.
@@ -964,13 +981,17 @@
       <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged view">
       <div class="lightbox-caption-bar">
         <span id="lightbox-title">Screenshot Title</span>
-        <span id="lightbox-counter" class="lightbox-counter">1 / 5</span>
+        <span id="lightbox-counter" class="lightbox-counter">1 / 6</span>
       </div>
     </div>
   </div>
 
   <script>
     const screenshots = [
+      {
+        src: './screenshots/00-module-portal.png',
+        title: 'Multi-Module Enterprise Hub & Portal (HRIS, UMS, Accounts, Asset, Charity)',
+      },
       {
         src: './screenshots/01-dashboard.png',
         title: 'Executive Analytics Dashboard (ApexCharts & KPIs)',
