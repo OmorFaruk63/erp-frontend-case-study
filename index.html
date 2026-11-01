@@ -287,6 +287,7 @@
       justify-content: center;
       border-bottom: 1px solid var(--card-border);
       overflow: hidden;
+      cursor: pointer;
     }
 
     .showcase-img-box img {
@@ -295,6 +296,168 @@
       object-fit: cover;
       object-position: top;
       display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .showcase-card:hover .showcase-img-box img {
+      transform: scale(1.03);
+    }
+
+    .zoom-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #93c5fd;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: all 0.2s ease;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .showcase-card:hover .zoom-hint {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(5, 8, 16, 0.94);
+      backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-container {
+      position: relative;
+      max-width: 95vw;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: scale(0.96);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lightbox-modal.active .lightbox-container {
+      transform: scale(1);
+    }
+
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(59, 130, 246, 0.15);
+    }
+
+    .lightbox-caption-bar {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 800px;
+      color: #e2e8f0;
+      font-size: 14px;
+      font-weight: 600;
+      background: rgba(18, 24, 38, 0.8);
+      border: 1px solid var(--card-border);
+      padding: 10px 18px;
+      border-radius: 8px;
+    }
+
+    .lightbox-counter {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      background: rgba(59, 130, 246, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .lightbox-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: white;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+
+    .lightbox-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .lightbox-btn.prev { left: 24px; }
+    .lightbox-btn.next { right: 24px; }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: white;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 20;
+    }
+
+    .lightbox-close:hover {
+      background: #ef4444;
+      border-color: #ef4444;
+      transform: rotate(90deg);
+    }
+
+    @media (max-width: 768px) {
+      .lightbox-btn.prev { left: 8px; }
+      .lightbox-btn.next { right: 8px; }
+      .lightbox-close { top: 12px; right: 12px; }
     }
 
     /* Fallback UI Mockup when user hasn't added images yet */
@@ -496,12 +659,13 @@
 
       <!-- View 1: Analytics Dashboard -->
       <div class="showcase-card">
-        <div class="showcase-img-box">
+        <div class="showcase-img-box" onclick="openLightbox(0)">
           <img src="./screenshots/01-dashboard.png" alt="Analytics Dashboard" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="mock-preview" style="display: none;">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
             <span><strong>01-dashboard.png</strong><br>Admin Analytics & KPI Metrics</span>
           </div>
+          <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
         <div class="showcase-info">
           <div class="showcase-title">
@@ -516,12 +680,13 @@
 
       <!-- View 2: Virtualized DataGrid -->
       <div class="showcase-card">
-        <div class="showcase-img-box">
+        <div class="showcase-img-box" onclick="openLightbox(1)">
           <img src="./screenshots/02-datagrid.png" alt="Employee Management DataGrid" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="mock-preview" style="display: none;">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 10h18M3 15h18M8 3v18"/></svg>
             <span><strong>02-datagrid.png</strong><br>Virtualized Employee Directory</span>
           </div>
+          <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
         <div class="showcase-info">
           <div class="showcase-title">
@@ -536,12 +701,13 @@
 
       <!-- View 3: Multi-Step Forms -->
       <div class="showcase-card">
-        <div class="showcase-img-box">
+        <div class="showcase-img-box" onclick="openLightbox(2)">
           <img src="./screenshots/03-form.png" alt="Multi-Step Onboarding Form" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="mock-preview" style="display: none;">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
             <span><strong>03-form.png</strong><br>Multi-Step Stepper & Validation</span>
           </div>
+          <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
         <div class="showcase-info">
           <div class="showcase-title">
@@ -556,12 +722,13 @@
 
       <!-- View 4: Payroll & Reports -->
       <div class="showcase-card">
-        <div class="showcase-img-box">
+        <div class="showcase-img-box" onclick="openLightbox(3)">
           <img src="./screenshots/04-payroll.png" alt="Payroll & Client Exports" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="mock-preview" style="display: none;">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <span><strong>04-payroll.png</strong><br>Client-Side PDF & Excel Generator</span>
           </div>
+          <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
         <div class="showcase-info">
           <div class="showcase-title">
@@ -636,6 +803,84 @@
     </footer>
 
   </main>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox-modal" onclick="onLightboxBgClick(event)">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close modal">&times;</button>
+    <button class="lightbox-btn prev" onclick="changeLightbox(-1)" aria-label="Previous image">&#10094;</button>
+    <button class="lightbox-btn next" onclick="changeLightbox(1)" aria-label="Next image">&#10095;</button>
+    <div class="lightbox-container">
+      <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged view">
+      <div class="lightbox-caption-bar">
+        <span id="lightbox-title">Screenshot Title</span>
+        <span id="lightbox-counter" class="lightbox-counter">1 / 4</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const screenshots = [
+      {
+        src: './screenshots/01-dashboard.png',
+        title: 'Executive Analytics Dashboard (ApexCharts & KPIs)',
+      },
+      {
+        src: './screenshots/02-datagrid.png',
+        title: 'Employee Directory & Virtualized DataGrid (MUI X-DataGrid, 60 FPS)',
+      },
+      {
+        src: './screenshots/03-form.png',
+        title: 'Multi-Step Onboarding Form (React Hook Form + Zod Validation)',
+      },
+      {
+        src: './screenshots/04-payroll.png',
+        title: 'Payroll Engine & Client-Side PDF/Excel Exports (ExcelJS, jsPDF)',
+      }
+    ];
+
+    let currentIndex = 0;
+    const modal = document.getElementById('lightbox');
+    const modalImg = document.getElementById('lightbox-img');
+    const modalTitle = document.getElementById('lightbox-title');
+    const modalCounter = document.getElementById('lightbox-counter');
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightboxContent();
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function changeLightbox(direction) {
+      currentIndex = (currentIndex + direction + screenshots.length) % screenshots.length;
+      updateLightboxContent();
+    }
+
+    function updateLightboxContent() {
+      const item = screenshots[currentIndex];
+      modalImg.src = item.src;
+      modalTitle.textContent = item.title;
+      modalCounter.textContent = `${currentIndex + 1} / ${screenshots.length}`;
+    }
+
+    function onLightboxBgClick(e) {
+      if (e.target === modal || e.target.classList.contains('lightbox-container')) {
+        closeLightbox();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!modal.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') changeLightbox(-1);
+      if (e.key === 'ArrowRight') changeLightbox(1);
+    });
+  </script>
 
 </body>
 </html>
