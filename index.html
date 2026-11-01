@@ -587,6 +587,153 @@
     .footer-links a:hover {
       color: #fff;
     }
+
+    .nda-short { display: none; }
+
+    /* Mobile Responsive Optimizations */
+    @media (max-width: 640px) {
+      header {
+        padding: 10px 0;
+      }
+      .nav-content {
+        gap: 8px;
+      }
+      .logo-area {
+        gap: 8px;
+      }
+      .logo-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+        border-radius: 6px;
+      }
+      .logo-area div:last-child div:first-child {
+        font-size: 13px !important;
+      }
+      .logo-area div:last-child div:last-child {
+        font-size: 10px !important;
+      }
+      .nav-links {
+        gap: 6px;
+      }
+      .nda-tag {
+        font-size: 10px;
+        padding: 3px 8px;
+      }
+      .nda-full { display: none; }
+      .nda-short { display: inline; }
+      .btn-contact {
+        font-size: 11px;
+        padding: 5px 10px;
+      }
+
+      .hero {
+        padding: 24px 0 16px;
+      }
+      .hero-tags {
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+      .tag-pill {
+        font-size: 11px;
+        padding: 3px 8px;
+      }
+      h1 {
+        font-size: 24px !important;
+        letter-spacing: -0.5px;
+        line-height: 1.25;
+        margin-bottom: 12px;
+      }
+      .hero-desc {
+        font-size: 13.5px;
+        line-height: 1.6;
+      }
+
+      .hr-summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 14px 16px;
+        margin: 18px 0 24px;
+      }
+
+      .metric-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+        margin-bottom: 28px;
+      }
+      .metric-card {
+        padding: 12px 14px;
+      }
+      .metric-value {
+        font-size: 22px;
+      }
+      .metric-value span {
+        font-size: 11px;
+      }
+      .metric-title {
+        font-size: 11px;
+        margin-top: 2px;
+      }
+
+      .section-title {
+        font-size: 18px;
+        margin: 32px 0 16px;
+      }
+
+      .showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .showcase-img-box {
+        height: 190px;
+      }
+      .showcase-info {
+        padding: 14px 16px;
+      }
+      .showcase-title {
+        font-size: 14px;
+      }
+      .showcase-desc {
+        font-size: 12px;
+      }
+
+      .challenges-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .challenge-card {
+        padding: 16px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        margin-top: 4px;
+      }
+      .footer-links a {
+        margin: 0 10px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .logo-area div:last-child {
+        max-width: 120px;
+      }
+      .logo-area div:last-child div:last-child {
+        display: none;
+      }
+      .nda-tag {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -602,7 +749,10 @@
         </div>
       </div>
       <div class="nav-links">
-        <span class="nda-tag">🔒 Confidential / NDA Protected</span>
+        <span class="nda-tag">
+          <span class="nda-full">🔒 Confidential / NDA Protected</span>
+          <span class="nda-short">🔒 NDA</span>
+        </span>
         <a href="mailto:omor3710@gmail.com" class="btn-contact">Contact Me</a>
       </div>
     </div>
