@@ -810,11 +810,7 @@
       <!-- View 1: Analytics Dashboard -->
       <div class="showcase-card">
         <div class="showcase-img-box" onclick="openLightbox(0)">
-          <img src="./screenshots/01-dashboard.png" alt="Analytics Dashboard" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="mock-preview" style="display: none;">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span><strong>01-dashboard.png</strong><br>Admin Analytics & KPI Metrics</span>
-          </div>
+          <img src="./screenshots/01-dashboard.png" alt="Analytics Dashboard">
           <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
         <div class="showcase-info">
@@ -831,11 +827,7 @@
       <!-- View 2: Virtualized DataGrid -->
       <div class="showcase-card">
         <div class="showcase-img-box" onclick="openLightbox(1)">
-          <img src="./screenshots/02-datagrid.png" alt="Employee Management DataGrid" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="mock-preview" style="display: none;">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 10h18M3 15h18M8 3v18"/></svg>
-            <span><strong>02-datagrid.png</strong><br>Virtualized Employee Directory</span>
-          </div>
+          <img src="./screenshots/02-datagrid.png" alt="Employee Management DataGrid">
           <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
         <div class="showcase-info">
@@ -844,49 +836,58 @@
             <span class="showcase-tag">MUI X-DataGrid &bull; 60 FPS</span>
           </div>
           <div class="showcase-desc">
-            Virtualized table rendering 5,000+ employee records with column pinning, debounced search, and instant status chips.
+            Virtualized table rendering employee records with debounced search, custom designation chips, and status filters.
           </div>
         </div>
       </div>
 
-      <!-- View 3: Multi-Step Forms -->
+      <!-- View 3: Organization Management -->
       <div class="showcase-card">
         <div class="showcase-img-box" onclick="openLightbox(2)">
-          <img src="./screenshots/03-form.png" alt="Multi-Step Onboarding Form" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="mock-preview" style="display: none;">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            <span><strong>03-form.png</strong><br>Multi-Step Stepper & Validation</span>
-          </div>
+          <img src="./screenshots/03-organization.png" alt="Manage Organization">
           <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
         <div class="showcase-info">
           <div class="showcase-title">
-            <span>Multi-Step Onboarding Workflow</span>
-            <span class="showcase-tag">React Hook Form &bull; Zod</span>
+            <span>Organizational Hierarchy Structure</span>
+            <span class="showcase-tag">Concerns &bull; Branches &bull; Depts</span>
           </div>
           <div class="showcase-desc">
-            Dynamic stepper preserving complex drafts across Personal, Job, Payroll, and Hierarchy tiers with strict schema rules.
+            Multi-tier corporate governance view organizing concerns, branches, departments, sections, and designations.
           </div>
         </div>
       </div>
 
-      <!-- View 4: Payroll & Reports -->
+      <!-- View 4: Leave Application Form -->
       <div class="showcase-card">
         <div class="showcase-img-box" onclick="openLightbox(3)">
-          <img src="./screenshots/04-payroll.png" alt="Payroll & Client Exports" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="mock-preview" style="display: none;">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span><strong>04-payroll.png</strong><br>Client-Side PDF & Excel Generator</span>
-          </div>
+          <img src="./screenshots/04-leave-form.png" alt="Apply Leave for Employee">
           <div class="zoom-hint">🔍 Click to zoom</div>
         </div>
         <div class="showcase-info">
           <div class="showcase-title">
-            <span>Payroll Engine & Report Exports</span>
-            <span class="showcase-tag">ExcelJS &bull; jsPDF &bull; Instant</span>
+            <span>Leave Application & Approvals</span>
+            <span class="showcase-tag">React Hook Form &bull; Validation</span>
           </div>
           <div class="showcase-desc">
-            Client-side calculation and branded PDF pay-slip generation, eliminating backend queue delays completely.
+            Dynamic leave request workflow with automated duration calculation, leave-slot selection, and approval tiering.
+          </div>
+        </div>
+      </div>
+
+      <!-- View 5: Payroll & Salary Breakdown -->
+      <div class="showcase-card" style="grid-column: 1 / -1;">
+        <div class="showcase-img-box" style="height: 280px;" onclick="openLightbox(4)">
+          <img src="./screenshots/05-payroll.png" alt="Payroll Management">
+          <div class="zoom-hint">🔍 Click to zoom</div>
+        </div>
+        <div class="showcase-info">
+          <div class="showcase-title">
+            <span>Payroll Engine & Compensation Pipeline</span>
+            <span class="showcase-tag">ExcelJS &bull; jsPDF &bull; Automated Net Pay</span>
+          </div>
+          <div class="showcase-desc">
+            Complete disbursement dashboard calculating gross salaries, basic allowances, tax/PF deductions, and monthly payroll history.
           </div>
         </div>
       </div>
@@ -963,7 +964,7 @@
       <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged view">
       <div class="lightbox-caption-bar">
         <span id="lightbox-title">Screenshot Title</span>
-        <span id="lightbox-counter" class="lightbox-counter">1 / 4</span>
+        <span id="lightbox-counter" class="lightbox-counter">1 / 5</span>
       </div>
     </div>
   </div>
@@ -979,12 +980,16 @@
         title: 'Employee Directory & Virtualized DataGrid (MUI X-DataGrid, 60 FPS)',
       },
       {
-        src: './screenshots/03-form.png',
-        title: 'Multi-Step Onboarding Form (React Hook Form + Zod Validation)',
+        src: './screenshots/03-organization.png',
+        title: 'Organizational Hierarchy Structure (Concerns, Branches, Departments)',
       },
       {
-        src: './screenshots/04-payroll.png',
-        title: 'Payroll Engine & Client-Side PDF/Excel Exports (ExcelJS, jsPDF)',
+        src: './screenshots/04-leave-form.png',
+        title: 'Leave Application & Approval Workflow (React Hook Form + Validation)',
+      },
+      {
+        src: './screenshots/05-payroll.png',
+        title: 'Payroll Engine & Net Salary Breakdown (ExcelJS, jsPDF Exports)',
       }
     ];
 
